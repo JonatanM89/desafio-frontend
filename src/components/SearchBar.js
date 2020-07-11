@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Paper, TextField, Grid, Fab, makeStyles } from "@material-ui/core";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-//import { AddIcon, EditIcon , NavigationIcon, FavoriteIcon } from '@material-ui/icons';
-
 
 export default ({ onSubmit }) => {
   const [searchTerm, setSearchTerm] = useState("");
