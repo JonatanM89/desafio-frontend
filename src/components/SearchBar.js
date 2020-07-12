@@ -15,6 +15,7 @@ export default ({ onSubmit, onShowFavorites }) => {
   const handleChange = (event) => setSearchTerm(event.target.value);
 
   const onKeyPress = (event) => {
+
     if (event.key === "Enter") {
       onSubmit(searchTerm);
     }
@@ -42,14 +43,13 @@ export default ({ onSubmit, onShowFavorites }) => {
         </Grid>
 
         <Grid xs={12} md={8} sm={7}>
-          <Paper component="form" style={{ padding: '2px 4px', display: 'flex', alignItems: 'center', width: "97%", marginTop: 5 }}>
+          <Paper style={{ padding: '2px 4px', display: 'flex', alignItems: 'center', width: "97%", marginTop: 5 }}>
             <InputBase
               style={{ marginLeft: 0, flex: 1, }}
               placeholder="Pesquisar"
               value={searchTerm}
               onChange={handleChange}
               onKeyPress={onKeyPress}
-              inputProps={{ 'aria-label': 'search google maps' }}
             />
             <IconButton type="submit" style={{ padding: 10, }} aria-label="search">
               <SearchIcon />

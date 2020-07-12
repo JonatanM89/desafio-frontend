@@ -23,6 +23,7 @@ export default () => {
   }, []);
 
   async function handleSubmit(searchTerm, origin = 'home', qtd = 28) {
+
     const { data: { items: videos } } = await youtube.get("search", {
       params: {
         part: "snippet",
@@ -36,7 +37,7 @@ export default () => {
     setOrigin(origin)
     setVideos(videos);
     setSelectedVideo(videos[0]);
-    setsearchedTerm(searchTerm)
+    //setsearchedTerm(searchTerm)
     addHistory(searchTerm)
   }
 
@@ -46,6 +47,7 @@ export default () => {
   }
 
   function backToHome() {
+
     return (
       <Link style={{ marginBottom: 20 }} href="#" onClick={() => setOrigin('home')}>
         Voltar ao início
