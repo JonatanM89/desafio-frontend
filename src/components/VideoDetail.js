@@ -1,15 +1,31 @@
 import React from "react";
-
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import { Paper, Typography, Button } from "@material-ui/core";
 
-export default ({ video }) => {
+export default ({ video, addFavorite, favorites }) => {
   if (!video) return <div>Loading...</div>;
 
   const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
 
+  function showHiddenButton() {
+    if (!favorites) {
+      return (<Button variant="outlined" size="small" color="primary" style={{ marginTop: 10, float: 'right' }}
+        variant="contained"
+        size="small"
+        onClick={() => addFavorite(video)}
+        startIcon={<FavoriteIcon />}
+      >
+        Favoritar
+      </Button>)
+    }
+
+
+    return ""
+  }
+
   return (
     <React.Fragment>
-      <Paper elevation={1} style={{ height: "70%" }}>
+      <Paper elevation={1} style={{ height: "17%", minHeight: 300 }}>
         <iframe
           frameBorder="0"
           height="100%"
@@ -26,7 +42,7 @@ export default ({ video }) => {
           {video.snippet.channelTitle}
         </Typography>
         <Typography variant="subtitle2">{video.snippet.description}</Typography>
-        <Button style={{marginTop:10, float:'right'}} variant="contained">Favoritar</Button>
+        {showHiddenButton()}
       </Paper>
     </React.Fragment>
   );
